@@ -1,0 +1,8 @@
+#' Function to get distance from a two-column vector
+#' @param x A two column numeric matrix.
+#' @return A numeric matrix showing pairwise distances between all of the
+#'   rows of the input matrix.
+#' @export
+get_dist <- function(x){
+  fields::rdist(x)
+}

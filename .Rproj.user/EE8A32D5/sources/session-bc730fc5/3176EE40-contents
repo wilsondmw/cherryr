@@ -1,0 +1,67 @@
+# Function to play hi-ho cherry-o by yourself (which, in normal circumstances
+# would be lame).
+# Arguments:
+# - tree - the total number of cherries on the tree at the start of the game
+# - max_play - since the game can technically go on forever, select the maximum
+#              number of turns allowed. Default value is 1e5.
+#' @export
+play_game <- function(tree, max_game = 1e5) {
+
+  if(!is.numeric(tree)) stop(paste("tree must be numeric, not", class(tree)))
+  if(tree %% 1 != 0){
+    warning("Decimal value detected for tree input, coercing to integer")
+    tree <- as.integer(tree)
+  }
+  if(tree > 50){
+    message("You are crazy for wanting to play the game with such a large
+            cherry tree!")
+  }
+  # Set the "starting" variables for the game
+  tree_current <- vector("numeric", max_game + 1)
+  tree_current[1] <- tree
+  basket <- 0
+
+  # Now, play the game. Write a conditional statement that suspends the loop
+  # once the number of cherries on the tree drops to zero.
+  for(i in seq_len(max_game)) {
+
+    # Use +1 since the initial grid is stored in index 1
+    tree_current[i + 1] <- spinner(tree_current[i], basket)
+    basket <- tree - tree_current[i + 1]
+
+    # Use < instead of == to avoid any numerical precision issues around 0.
+    if(tree_current[i + 1] < 0.0001){
+      break
+    }
+  }
+
+  # BONUS: Add warning statement if game finished to complete.
+  if(i == max_game){
+    warning("Game not finished before max_game reached")
+  }
+
+  game_moves <- diff(tree_current[seq_len(i + 1)])
+
+  # Return the number of iterations it took to finish the game. Return as the
+  # cherry class (see generics.R).
+  as_cherry(i, tree = tree, game_diff = game_moves)
+}
+
+# Function that simulates a "turn" in the game hi ho cherry-o.
+# Arguments:
+# tree - the current number of cherries on the tree
+# basket - the current number of cherries in the basket
+# Returns:
+# - The number of cherries left on the tree after the turn
+spinner <- function(tree, basket) {
+
+  bird_dog <- -min( c(2, basket) )
+
+  move <- sample(c(1:4, rep(bird_dog, 2), -basket), size = 1)
+
+  left <- tree - move
+
+  max(left, 0)
+}
+
+

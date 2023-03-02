@@ -1,0 +1,15 @@
+# Function to create the cherry class.
+# Arguments:
+# x - the number of spins it takes to finish the game.
+# bird_dog - the number of bird or dog spins
+# bucket - the number of bucket spins
+# ones - the number of "one" spins
+# twos - the number of "two" spins
+# threes - the number of "three" spins
+# fours - the number of "four" spins
+as_cherry <- function(x, tree, game_diff){
+  structure(x,
+            tree = tree,
+            game_diff = game_diff,
+            class = "cherry")
+}

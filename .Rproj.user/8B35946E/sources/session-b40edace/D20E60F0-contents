@@ -1,0 +1,20 @@
+test_that("spinner counts stay in bounds", {
+  tree_size <- sample(5:30, 1)
+  # Create a set of "starting points" for the spinner.
+  tree_start <- sample(1:tree_size, size = 100, replace = TRUE)
+
+  # Run the spinner from some arbitrary starting points, that have been
+  # randomly sampled. Store what is "left" on the tree for each
+  # arbitrary starting point.
+  spinner_store <- vector("numeric", length(start))
+  for(i in seq_len(length(tree_start))){
+    spinner_store[i] <- spinner(tree_start[i], tree_size - tree_start[i])
+  }
+
+  # Make sure the number of cherry's left on the tree
+  # stays in bounds.
+   expect_true(spinner_store > 0)
+   expect_true(spinner_store <= tree_size)
+   
+  
+})

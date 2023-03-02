@@ -1,0 +1,18 @@
+Package: cherryr
+Title: Simulate the Game Hi-Ho Cherry-O
+Version: 0.0.0.9000
+Authors@R: 
+    person("Brennan", "Brean", , "brennan.bean@usu.edu", 
+           role = c("aut", "cre"))
+Description: This package simulates variations of the game Hi-Ho Cherry-O! In
+    the game, players use a spinner to generate actions of taking cherries 
+    off and back on a cherry tree. The goal of the game is to be the first 
+    player to get all of your cherries in the basket. 
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Suggests: 
+    testthat (>= 3.0.0),
+    purrr
+Config/testthat/edition: 3
