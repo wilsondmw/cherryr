@@ -13,3 +13,4 @@ as_cherry <- function(x, tree, game_diff){
             game_diff = game_diff,
             class = "cherry")
 }
+

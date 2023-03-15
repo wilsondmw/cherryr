@@ -1,0 +1,60 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# cherryr
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of cherryr is to simulate a game of Hi Ho Cherry-o. They will call the `play_game` function with arguments of the number of cherries to start with on the tree, and a max number of turns to allow the game to play. `play_game` will return a cherry object which contains information about the game including what happened on each turn. 
+
+## Installation
+
+You can install the development version of cherryr from [GitHub](https://github.com/) with:
+
+``` r 
+# install.packages("devtools")
+devtools::install_github("wilsondmw/cherryr")
+```
+
+## Example
+
+In order to simulate a game of Hi ho cherry O the user will call the 'play_game' function and specify the number of cherries that will start on the tree. 
+```{r example}
+library(cherryr)
+my_game <- play_game(10)
+```
+
+The above will return an object of the cherry class. It will primarily give the number of turns that it took to play a complete game, but the object will also store the results of each turn until the game is over which can be visulaised by calling the 'plot' function on a cherry object which will show cherries being removed from and added to the tree until the game is over.
+
+```{r plot}
+plot(my_game)
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+```{r cars}
+summary(cars)
+```
+
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
+
+You can also embed plots, for example:
+
+```{r pressure, echo = FALSE}
+plot(my_game)
+```
+
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

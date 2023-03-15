@@ -7,6 +7,6 @@
 #' @export
 plot.cherry <- function(x, y, ...){
   run <- attr(x, "tree") + cumsum(attr(x, "game_diff"))
-  plot(0:length(run), c(attr(x, "tree"), run), ylim = c(0, 10),
+  plot(0:length(run), c(attr(x, "tree"), run), ylim = c(0, attr(x, "tree")),
        xlab = "Spins", ylab = "On Tree", type = "l", ...)
 }
