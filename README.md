@@ -4,6 +4,8 @@
 # cherryr
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/wilsondmw/cherryr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wilsondmw/cherryr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of cherryr is to simulate a game of Hi Ho Cherry-o. They will

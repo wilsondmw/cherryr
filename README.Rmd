@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # cherryr
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/wilsondmw/cherryr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wilsondmw/cherryr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of cherryr is to simulate a game of Hi Ho Cherry-o. They will call the `play_game` function with arguments of the number of cherries to start with on the tree, and a max number of turns to allow the game to play. `play_game` will return a cherry object which contains information about the game including what happened on each turn. 
